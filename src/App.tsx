@@ -1,26 +1,32 @@
+// src/App.tsx
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Home from './pages/Home';
+import Menu from './pages/Menu';
+import About from './pages/About';
+import Contact from './pages/Contact';
+import Airbnb from './pages/Airbnb';
 
-function App() {
+
+const metaTitle = "All Joy Donuts";
+const metaDescription = "All Joy Donuts is a family-owned donut shop in Bluffton, SC. We offer a variety of donuts, coffee, and more. Come visit us today!";
+
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/menu" element={<Menu />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/airbnb" element={<Airbnb />} />
+      </Routes>
+      <Footer />
+    </>
   );
-}
+};
 
 export default App;
