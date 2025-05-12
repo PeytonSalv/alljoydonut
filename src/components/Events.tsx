@@ -25,7 +25,7 @@ const Events: React.FC = () => {
           </p>
 
           <Link
-            to="/events"
+            to="/contact"
             className="inline-block px-5 py-3 text-white bg-teal-600 hover:bg-teal-700 transition rounded-full text-sm font-semibold shadow"
           >
             Book Your Event

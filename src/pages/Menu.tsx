@@ -25,8 +25,8 @@ const Menu: React.FC = () => {
   return (
     <div className="pt-24 min-h-screen bg-cream bg-donut-pattern">
       <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
-        <h1 className="text-5xl text-center text-orange-500 font-pacifico drop-shadow mb-3">Our Donuts</h1>
-        <p className="text-lg text-gray-700 text-center mb-10">
+        <h1 className="text-4xl md:text-5xl text-center text-orange-500 font-pacifico drop-shadow mb-3">Our Donuts</h1>
+        <p className="text-base md:text-lg text-gray-700 text-center mb-10">
           Handcrafted fresh every day with local love & quality ingredients
         </p>
 

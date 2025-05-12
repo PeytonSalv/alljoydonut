@@ -62,7 +62,7 @@ const Footer = () => {
                 (843) 707-6860
               </a>
             </li>
-            <li>info@alljoydonutco.com</li>
+            <li>info@alljoydonut.com</li>
           </ul>
         </div>
       </div>

@@ -65,7 +65,7 @@ const Contact: React.FC = () => {
   return (
     <div className="pt-24 min-h-screen bg-cream">
       <div className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-12">
-        <div className="grid md:grid-cols-2 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* ---------- Contact Form ---------- */}
           <div className="bg-white p-8 rounded-2xl shadow-lg">
             <h2 className="text-3xl font-bold text-orange-500 mb-6 font-pacifico">
@@ -153,7 +153,7 @@ const Contact: React.FC = () => {
 
               <button
                 type="submit"
-                className="w-full bg-orange-500 text-white py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors duration-200"
+                className="w-full bg-orange-500 text-white py-3 px-6 rounded-lg hover:bg-orange-600 transition-colors duration-200 text-base md:text-lg"
               >
                 Send Message
               </button>
@@ -162,7 +162,7 @@ const Contact: React.FC = () => {
 
           {/* ---------- Contact Info ---------- */}
           <div className="bg-white p-8 rounded-2xl shadow-lg">
-            <h3 className="text-2xl font-bold text-orange-500 mb-6">Contact Info</h3>
+            <h3 className="text-2xl font-bold text-orange-500 mb-6">Contact Info</h3>
 
             <ul className="space-y-6 text-gray-700 text-lg">
               <li className="flex items-start gap-4">
@@ -187,20 +187,20 @@ const Contact: React.FC = () => {
                   rel="noopener noreferrer"
                   className="hover:underline"
                 >
-                  22 Heyward St, Bluffton SC
+                  22 Heyward St, Bluffton SC
                 </a>
               </li>
 
               <li className="flex items-start gap-4">
                 {Icon(FaClock, 'text-orange-500 mt-1')}
-                Fri – Sun, 7 am – 1 pm
+                Fri – Sun, 7 am – 1 pm
               </li>
             </ul>
 
             <div className="mt-10 bg-orange-100 text-orange-800 p-6 rounded-xl text-center font-semibold text-lg">
               Interested in Franchising? <br />
               <span className="underline decoration-dotted hover:text-orange-600 cursor-pointer">
-                Contact Us Now!
+                Contact Us Now!
               </span>
             </div>
           </div>

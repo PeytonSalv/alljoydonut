@@ -17,8 +17,8 @@ const Airbnb: React.FC = () => {
 
         {/* Header */}
         <div className="text-center mb-12">
-          <h1 className="text-5xl font-pacifico text-orange-500 mb-4">Stay with Us</h1>
-          <p className="text-gray-700 text-lg max-w-xl mx-auto">
+          <h1 className="text-4xl md:text-5xl font-pacifico text-orange-500 mb-4">Stay with Us</h1>
+          <p className="text-base md:text-lg text-gray-700 max-w-xl mx-auto">
             A charming, cozy getaway in the heart of Bluffton – just minutes from everything. Clean, stylish, and full of Southern charm.
           </p>
         </div>
