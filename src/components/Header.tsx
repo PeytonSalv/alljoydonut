@@ -8,7 +8,7 @@ const nav: NavItem[] = [
   { name: 'Menu', path: '/menu' },
   { name: 'About', path: '/about' },
   { name: 'Contact', path: '/contact' },
-  { name: 'Bike Rentals', path: 'https://alljoybike.com/bluffton-rentals/', external: true },
+  { name: 'Bike Rentals', path: 'https://alljoybike.com', external: true },
   { name: 'AirBnB', path: '/airbnb' },
 ];
 
@@ -16,6 +16,7 @@ const Header: React.FC = () => {
   const { pathname } = useLocation();
   const navigate = useNavigate();
   const [open, setOpen] = useState(false);
+  const [showBikePopup, setShowBikePopup] = useState(true);
 
   // Lock body scroll when menu open
   useEffect(() => {
@@ -26,7 +27,10 @@ const Header: React.FC = () => {
   // Close on Escape key
   useEffect(() => {
     const handleKey = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') setOpen(false);
+      if (e.key === 'Escape') {
+        setOpen(false);
+        setShowBikePopup(false);
+      }
     };
     document.addEventListener('keydown', handleKey);
     return () => { document.removeEventListener('keydown', handleKey); };
@@ -60,6 +64,48 @@ const Header: React.FC = () => {
 
   return (
     <>
+      {/* Bike Rental Popup */}
+      {showBikePopup && (
+        <div className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 z-50 max-w-sm w-full sm:w-80 bg-white rounded-xl shadow-xl border border-blue-100 overflow-hidden animate-fade-in-up">
+          <div className="relative p-4">
+            <button 
+              onClick={() => setShowBikePopup(false)} 
+              className="absolute top-2 right-2 text-gray-400 hover:text-gray-600 p-1 rounded-full hover:bg-gray-100"
+              aria-label="Close announcement"
+            >
+              <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                <path fillRule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clipRule="evenodd" />
+              </svg>
+            </button>
+            
+            <a 
+              href="https://alljoybike.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="block group"
+            >
+              <div className="flex items-center">
+                <img src="/bikelogo.png" alt="Alljoy Bike & Beach Rentals" className="h-16 w-auto mr-4" />
+                <div>
+                  <h3 className="font-bold text-orange-500 mb-1 group-hover:text-orange-600 transition">
+                    Now Open!
+                  </h3>
+                  <p className="text-sm text-gray-600">
+                    Alljoy Bike & Beach Rentals is ready for your adventure
+                  </p>
+                </div>
+              </div>
+              
+              <div className="mt-3 text-center">
+                <span className="inline-block px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white rounded-full text-sm font-medium transition">
+                  Book Your Rental Now
+                </span>
+              </div>
+            </a>
+          </div>
+        </div>
+      )}
+
       <header className="fixed inset-x-0 top-0 z-50 bg-white/95 backdrop-blur-md shadow-sm">
         <div className="mx-auto flex h-24 lg:h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
           <Link to="/" className="flex items-center">
@@ -88,6 +134,15 @@ const Header: React.FC = () => {
           </div>
         </div>
       </header>
+
+      {/* Mobile Menu Backdrop */}
+      {open && (
+        <div
+          className="fixed inset-0 z-30 bg-black/50 backdrop-blur-sm transition-opacity duration-300 ease-out lg:hidden"
+          onClick={() => setOpen(false)}
+          aria-hidden="true"
+        />
+      )}
 
       {/* Sidebar Menu, positioned below header */}
       <div
